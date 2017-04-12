@@ -1,0 +1,21 @@
+[controller-eos]
+192.168.100.102	ansible_user=controller2 ansible_ssh_pass={{controller2_pass}} ansible_sudo_pass={{controller2_pass}}
+
+[controller-lb]
+192.168.100.100 ansible_user=controller ansible_ssh_pass={{controller1_pass}} ansible_sudo_pass={{controller1_pass}}
+
+[controllers:children]
+controller-eos
+controller-lb
+
+[compute-eos]
+192.168.100.202	ansible_user=compute21	ansible_ssh_pass={{compute21_pass}} ansible_sudo_pass={{compute21_pass}}
+192.168.100.222	ansible_user=compute22	ansible_ssh_pass={{compute22_pass}} ansible_sudo_pass={{compute22_pass}}
+
+[compute-lb]
+192.168.100.200 ansible_user=compute1  ansible_ssh_pass={{compute1_pass}} ansible_sudo_pass={{compute1_pass}}
+192.168.100.220 ansible_user=compute2  ansible_ssh_pass={{compute2_pass}} ansible_sudo_pass={{compute2_pass}}
+
+[computes:children]
+compute-eos
+compute-lb

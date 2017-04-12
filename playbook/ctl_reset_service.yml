@@ -1,0 +1,6 @@
+---
+- name: Restarting Controller Services
+  hosts: controller
+  become: true
+  roles: 
+    - controller

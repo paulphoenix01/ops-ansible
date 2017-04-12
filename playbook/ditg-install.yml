@@ -1,0 +1,25 @@
+---
+  - hosts: all
+    name: INSTALLING NECESSARY PACKAGE
+    become: true
+    tasks:
+      - apt: 
+          name:
+            - g++
+            - unzip
+            - make
+          state: present
+  
+  - hosts: all
+    name: INSTALLING DITG
+    become: true
+    tasks:
+        - name: Downloading DITG
+          command: wget http://www.grid.unina.it/software/ITG/codice/D-ITG-2.8.1-r1023-src.zip -O ditg.zip
+        - name: Unzip
+          command: unzip ditg.zip -d ditg
+        - name: Setup DITG
+          command: make
+          args:  
+            chdir: ditg/D-ITG-2.8.1-r1023/src
+          

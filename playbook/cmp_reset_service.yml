@@ -1,0 +1,6 @@
+---
+- name: Restarting Compute nodes services.
+  hosts: computes
+  become: true
+  roles:
+    - role: compute

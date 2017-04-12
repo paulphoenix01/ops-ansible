@@ -1,0 +1,9 @@
+---
+  - hosts: all
+    name: Installing My TraceRoute
+    become: true
+    tasks:
+      - apt:
+          name: mtr
+          state: present
+          update_cache: true

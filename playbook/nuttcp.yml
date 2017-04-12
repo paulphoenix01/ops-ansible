@@ -1,0 +1,15 @@
+---
+  - hosts: all
+    name: Installing nuttcp
+    become: true
+    tasks:
+      - apt:
+          name: nuttcp
+          state: present
+          update_cache: true
+
+  - name: Enable nuttcp on Server
+    hosts: EOS:LB-server
+    tasks:
+        - command: nuttcp -S
+  

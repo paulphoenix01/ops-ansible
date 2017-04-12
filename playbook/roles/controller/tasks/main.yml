@@ -1,0 +1,23 @@
+---
+# tasks file for controller
+- name: Restart Neutron
+  service: name={{item}} state=restarted
+  with_items:
+    - neutron-server
+    - neutron-linuxbridge-agent
+    - neutron-dhcp-agent
+    - neutron-metadata-agent
+    - neutron-l3-agent
+
+- name: Restart Nova
+  service: name={{item}} state=restarted
+  with_items:
+    - nova-api
+    - nova-consoleauth
+    - nova-scheduler
+    - nova-conductor
+    - nova-novncproxy
+#    - nova-compute
+
+- name: Restart Horizon
+  service: name=apache2 state=restarted

@@ -1,0 +1,7 @@
+---
+controller2_pass: "{{ vault_controller2_pass }}"
+controller1_pass: "{{ vault_controller1_pass }}"
+compute21_pass: "{{vault_compute21_pass}}"
+compute22_pass: "{{vault_compute22_pass}}"
+compute1_pass: "{{vault_compute1_pass}}"
+compute2_pass: "{{vault_compute2_pass}}"
